@@ -5,5 +5,5 @@ build_from:
   armhf: arm32v6/alpine:3.20.3
   armv7: arm32v7/alpine:3.20.3
   i386: i386/alpine:3.20.3
-codenotary:
-  signer: codenotary@frenck.dev
+args:
+  BUILD_REPOSITORY: "psallandre/addon-base-standalone"

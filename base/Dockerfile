@@ -26,7 +26,7 @@ SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
 # Install base system
 ARG BUILD_ARCH=amd64
-ARG BASHIO_VERSION="v0.16.2"
+ARG BASHIO_VERSION="v0.16.2_fix-config"
 ARG S6_OVERLAY_VERSION="3.2.0.2"
 ARG TEMPIO_VERSION="2021.09.0"
 RUN \
@@ -66,7 +66,7 @@ RUN \
         | tar -C / -Jxpf - \
     \
     && curl -J -L -o /tmp/bashio.tar.gz \
-        "https://github.com/hassio-addons/bashio/archive/${BASHIO_VERSION}.tar.gz" \
+        "https://github.com/psallandre/bashio/archive/${BASHIO_VERSION}.tar.gz" \
     && mkdir /tmp/bashio \
     && tar zxvf \
         /tmp/bashio.tar.gz \
@@ -100,21 +100,21 @@ ARG BUILD_REPOSITORY
 
 # Labels
 LABEL \
-    io.hass.name="Addon base for ${BUILD_ARCH}" \
-    io.hass.description="Home Assistant Community Add-on: ${BUILD_ARCH} base image" \
+    io.hass.name="Addon standalone base for ${BUILD_ARCH}" \
+    io.hass.description="Home Assistant Add-on standalone (no supervisor): ${BUILD_ARCH} base image" \
     io.hass.arch="${BUILD_ARCH}" \
     io.hass.type="base" \
     io.hass.version=${BUILD_VERSION} \
     io.hass.base.version=${BUILD_VERSION} \
     io.hass.base.name="alpine" \
     io.hass.base.image="hassioaddons/base" \
-    maintainer="Franck Nijhof <frenck@addons.community>" \
-    org.opencontainers.image.title="Addon base for ${BUILD_ARCH}" \
-    org.opencontainers.image.description="Home Assistant Community Add-on: ${BUILD_ARCH} Base image" \
-    org.opencontainers.image.vendor="Home Assistant Community Add-ons" \
-    org.opencontainers.image.authors="Franck Nijhof <frenck@addons.community>" \
+    maintainer="" \
+    org.opencontainers.image.title="Addon standalone base for ${BUILD_ARCH}" \
+    org.opencontainers.image.description="Home Assistant Add-on standalone (no supervisor): ${BUILD_ARCH} base image" \
+    org.opencontainers.image.vendor="" \
+    org.opencontainers.image.authors="" \
     org.opencontainers.image.licenses="MIT" \
-    org.opencontainers.image.url="https://addons.community" \
+    org.opencontainers.image.url="" \
     org.opencontainers.image.source="https://github.com/${BUILD_REPOSITORY}" \
     org.opencontainers.image.documentation="https://github.com/${BUILD_REPOSITORY}/blob/main/README.md" \
     org.opencontainers.image.created=${BUILD_DATE} \
